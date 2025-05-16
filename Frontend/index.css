@@ -1,0 +1,242 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #f3f4f6;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Logo Section */
+.logo-section {
+    width: 50%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.logo {
+    max-width: 80%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.02);
+}
+
+/* Form Section */
+.form-section {
+    width: 50%;
+    background-color: rgb(51, 124, 51);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.login-container {
+    background-color: white;
+    padding: 2.5rem;
+    border-radius: 30px;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transform: translateY(0);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+h2 {
+    color: rgb(51, 124, 51);
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* User Type Toggle */
+.user-type-toggle {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    background-color: #f3f4f6;
+    padding: 0.5rem;
+    border-radius: 12px;
+}
+
+.toggle-btn {
+    flex: 1;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 8px;
+    background-color: transparent;
+    color: #4b5563;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.toggle-btn:hover {
+    background-color: rgba(51, 124, 51, 0.1);
+}
+
+.toggle-btn.active {
+    background-color: rgb(51, 124, 51);
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Form Groups */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #4b5563;
+}
+
+input, select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: #f9fafb;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: rgb(51, 124, 51);
+    box-shadow: 0 0 0 3px rgba(51, 124, 51, 0.1);
+    background-color: white;
+}
+
+/* Buttons */
+.button-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.login-btn, .register-btn {
+    flex: 1;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.login-btn {
+    background-color: rgb(51, 124, 51);
+    color: white;
+}
+
+.login-btn:hover {
+    background-color: rgb(45, 110, 45);
+    transform: translateY(-2px);
+}
+
+.register-btn {
+    background-color: #f3f4f6;
+    color: #4b5563;
+}
+
+.register-btn:hover {
+    background-color: #e5e7eb;
+    transform: translateY(-2px);
+}
+
+/* Utility Classes */
+.hidden {
+    display: none;
+}
+
+/* Error Messages */
+.error-message {
+    color: #dc2626;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    padding: 0.75rem;
+    background-color: #fee2e2;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+}
+
+/* Success Messages */
+.success-message {
+    background-color: #34d399;
+    color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    text-align: center;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .logo-section, .form-section {
+        width: 100%;
+    }
+
+    .logo-section {
+        padding: 1rem;
+        min-height: 200px;
+    }
+
+    .form-section {
+        padding: 1.5rem;
+    }
+
+    .login-container {
+        padding: 1.5rem;
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+
+    .login-btn, .register-btn {
+        width: 100%;
+    }
+}

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="create-test.css">
+    <title>Create Exam - Teacher Dashboard</title>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo-container">
+                <h1 class="logo">SKULL PORT</h1>
+            </div>
+            <nav class="nav-menu">
+                <button class="nav-item" data-page="dashboard">
+                    <span class="icon">🏠</span>
+                    <span>Dashboard</span>
+                </button>
+                <button class="nav-item" data-page="tests">
+                    <span class="icon">📝</span>
+                    <span>Create Tests</span>
+                </button>
+                <button class="nav-item active" data-page="exams">
+                    <span class="icon">📋</span>
+                    <span>Create Exams</span>
+                </button>
+                <button class="nav-item" data-page="submissions">
+                    <span class="icon">📥</span>
+                    <span>Submissions</span>
+                </button>
+                <button class="nav-item" data-page="grades">
+                    <span class="icon">📊</span>
+                    <span>Grade Reports</span>
+                </button>
+                <button class="nav-item" data-page="profile">
+                    <span class="icon">👤</span>
+                    <span>Profile</span>
+                </button>
+                <button class="nav-item logout">
+                    <span class="icon">🚪</span>
+                    <span>Logout</span>
+                </button>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <h1>Create New Exam</h1>
+            </header>
+
+            <div class="create-test-content">
+                <form id="createExamForm" class="test-form">
+                    <div class="form-section">
+                        <h2>Exam Details</h2>
+                        <div class="form-group">
+                            <label for="examTitle">Exam Title</label>
+                            <input type="text" id="examTitle" required placeholder="e.g., Mathematics Final Exam">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject" required>
+                                <option value="">Select Subject</option>
+                                <option value="mathematics">Mathematics</option>
+                                <option value="physics">Physics</option>
+                                <option value="chemistry">Chemistry</option>
+                                <option value="biology">Biology</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="class">Class</label>
+                                <select id="class" required>
+                                    <option value="">Select Class</option>
+                                    <option value="4a">Form 4A</option>
+                                    <option value="4b">Form 4B</option>
+                                    <option value="4c">Form 4C</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="duration">Duration (minutes)</label>
+                                <input type="number" id="duration" required min="30" max="180" value="120">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="examDate">Exam Date</label>
+                                <input type="date" id="examDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="examTime">Start Time</label>
+                                <input type="time" id="examTime" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="instructions">Special Instructions</label>
+                            <textarea id="instructions" rows="4" placeholder="Enter any special instructions for students..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h2>Questions</h2>
+                        <div id="questionsList">
+                            <!-- Questions will be added here -->
+                        </div>
+                        <div class="question-actions">
+                            <button type="button" class="add-question-btn" data-type="multiple">Add Multiple Choice</button>
+                            <button type="button" class="add-question-btn" data-type="essay">Add Essay Question</button>
+                            <button type="button" class="add-question-btn" data-type="calculation">Add Calculation Question</button>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h2>Exam Settings</h2>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="randomizeQuestions"> 
+                                Randomize question order
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="allowCalculator"> 
+                                Allow calculator
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="showResults"> 
+                                Show results immediately after submission
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="preview-btn">Preview Exam</button>
+                        <button type="submit" class="publish-btn">Publish Exam</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <!-- Preview Modal -->
+    <div class="modal" id="previewModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Exam Preview</h2>
+                <button class="close-modal">×</button>
+            </div>
+            <div class="modal-body">
+                <!-- Preview content will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Success!</h2>
+                <button class="close-modal">×</button>
+            </div>
+            <div class="modal-body">
+                <p>Your exam has been published successfully.</p>
+                <button class="view-test-btn">View Exam</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="create-exam.js"></script>
+</body>
+</html>

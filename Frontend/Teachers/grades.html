@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="grades.css">
+    <link rel="stylesheet" href="dash.css">
+    <title>Grade Reports - Teacher Dashboard</title>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo-container">
+                <h1 class="logo">SKULL PORT</h1>
+            </div>
+            <nav class="nav-menu">
+                <button class="nav-item" data-page="dashboard">
+                    <span class="icon">🏠</span>
+                    <span>Dashboard</span>
+                </button>
+                <button class="nav-item" data-page="tests">
+                    <span class="icon">📝</span>
+                    <span>Create Tests</span>
+                </button>
+                <button class="nav-item" data-page="exams">
+                    <span class="icon">📋</span>
+                    <span>Create Exams</span>
+                </button>
+                <button class="nav-item" data-page="submissions">
+                    <span class="icon">📥</span>
+                    <span>Submissions</span>
+                </button>
+                <button class="nav-item active" data-page="grades">
+                    <span class="icon">📊</span>
+                    <span>Grade Reports</span>
+                </button>
+                <button class="nav-item" data-page="profile">
+                    <span class="icon">👤</span>
+                    <span>Profile</span>
+                </button>
+                <button class="nav-item logout">
+                    <span class="icon">🚪</span>
+                    <span>Logout</span>
+                </button>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="search-container">
+                    <input type="text" placeholder="Search grades..." class="search-input">
+                    <span class="search-icon">🔍</span>
+                </div>
+                <div class="user-info">
+                    <span class="notification-badge">🔔</span>
+                    <span class="user-name">Ms. Sarah Johnson</span>
+                    <img src="/Frontend/img/school .png" alt="Profile" class="user-avatar">
+                </div>
+            </header>
+
+            <div class="grades-content">
+                <section class="welcome-section">
+                    <h1>Grade Reports</h1>
+                    <p>View and manage student grades</p>
+                </section>
+
+                <div class="filters-section">
+                    <select id="classFilter">
+                        <option value="">All Classes</option>
+                        <option value="4a">Form 4A</option>
+                        <option value="4b">Form 4B</option>
+                        <option value="4c">Form 4C</option>
+                    </select>
+                    <select id="subjectFilter">
+                        <option value="">All Subjects</option>
+                        <option value="mathematics">Mathematics</option>
+                        <option value="physics">Physics</option>
+                        <option value="chemistry">Chemistry</option>
+                    </select>
+                    <select id="periodFilter">
+                        <option value="">All Time</option>
+                        <option value="this-week">This Week</option>
+                        <option value="this-month">This Month</option>
+                        <option value="this-term">This Term</option>
+                    </select>
+                </div>
+
+                <div class="grades-grid">
+                    <div class="grades-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Student Name</th>
+                                    <th>Class</th>
+                                    <th>Test/Exam</th>
+                                    <th>Score</th>
+                                    <th>Grade</th>
+                                    <th>Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="gradesTableBody">
+                                <!-- Sample data -->
+                                <tr>
+                                    <td>John Doe</td>
+                                    <td>Form 4A</td>
+                                    <td>Mathematics Quiz 1</td>
+                                    <td>85%</td>
+                                    <td>A</td>
+                                    <td>2024-02-15</td>
+                                    <td>
+                                        <button class="edit-grade-btn">Edit</button>
+                                        <button class="view-details-btn">View</button>
+                                    </td>
+                                </tr>
+                                <!-- More rows will be added dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="grade-statistics">
+                        <div class="stat-card">
+                            <h3>Class Average</h3>
+                            <p class="stat-number">78%</p>
+                            <p class="stat-text">All subjects</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Highest Score</h3>
+                            <p class="stat-number">95%</p>
+                            <p class="stat-text">Mathematics</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Lowest Score</h3>
+                            <p class="stat-number">45%</p>
+                            <p class="stat-text">Physics</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="export-section">
+                    <button id="exportGrades" class="export-btn">
+                        <span class="icon">📊</span>
+                        Export Grades
+                    </button>
+                    <button id="printReport" class="print-btn">
+                        <span class="icon">🖨️</span>
+                        Print Report
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Edit Grade Modal -->
+    <div class="modal" id="editGradeModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Edit Grade</h2>
+                <button class="close-modal">×</button>
+            </div>
+            <div class="modal-body">
+                <form id="editGradeForm">
+                    <div class="form-group">
+                        <label for="editScore">Score (%)</label>
+                        <input type="number" id="editScore" min="0" max="100" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editComments">Comments</label>
+                        <textarea id="editComments" rows="4"></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="save-btn">Save Changes</button>
+                        <button type="button" class="cancel-btn">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="grades.js"></script>
+</body>
+</html>

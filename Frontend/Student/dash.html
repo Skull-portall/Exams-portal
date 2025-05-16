@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dash.css">
+    <title>Student Dashboard - School Portal</title>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo-container">
+                <h1 class="logo">SKULL PORT</h1>
+            </div>
+            <nav class="nav-menu">
+                <button class="nav-item active" data-page="dashboard">
+                    <span class="icon">🏠</span>
+                    <span>Dashboard</span>
+                </button>
+                <button class="nav-item" data-page="tests">
+                    <span class="icon">📝</span>
+                    <span>Tests</span>
+                </button>
+                <button class="nav-item" data-page="exams">
+                    <span class="icon">📋</span>
+                    <span>Exams</span>
+                </button>
+                <button class="nav-item" data-page="profile">
+                    <span class="icon">👤</span>
+                    <span>Profile</span>
+                </button>
+                <button class="nav-item logout">
+                    <span class="icon">🚪</span>
+                    <span>Logout</span>
+                </button>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="search-container">
+                    <input type="text" placeholder="Search..." class="search-input">
+                    <span class="search-icon">🔍</span>
+                </div>
+                <div class="user-info">
+                    <span class="notification-badge">🔔</span>
+                    <span class="user-name">John Doe</span>
+                    <img src="/Frontend/img/school .png" alt="Profile" class="user-avatar">
+                </div>
+            </header>
+
+            <div class="dashboard-content">
+                <section class="welcome-section">
+                    <h1>Welcome back, John! 👋</h1>
+                    <p>Here's what's happening with your academics</p>
+                </section>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Upcoming Tests</h3>
+                        <p class="stat-number">3</p>
+                        <p class="stat-text">Next test in 2 days</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Pending Exams</h3>
+                        <p class="stat-number">2</p>
+                        <p class="stat-text">Mathematics, Physics</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Average Score</h3>
+                        <p class="stat-number">85%</p>
+                        <p class="stat-text">Last 30 days</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Completed Tests</h3>
+                        <p class="stat-number">12</p>
+                        <p class="stat-text">This semester</p>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <section class="upcoming-tests">
+                        <h2>Upcoming Tests</h2>
+                        <div class="test-list">
+                            <div class="test-item">
+                                <div class="test-info">
+                                    <h3>Mathematics</h3>
+                                    <p>Chapter 5: Calculus</p>
+                                </div>
+                                <div class="test-meta">
+                                    <span class="test-date">May 15, 2024</span>
+                                    <button class="start-test">Start Test</button>
+                                </div>
+                            </div>
+                            <div class="test-item">
+                                <div class="test-info">
+                                    <h3>Physics</h3>
+                                    <p>Unit 3: Mechanics</p>
+                                </div>
+                                <div class="test-meta">
+                                    <span class="test-date">May 18, 2024</span>
+                                    <button class="start-test">Start Test</button>
+                                </div>
+                            </div>
+                            <div class="test-item">
+                                <div class="test-info">
+                                    <h3>Chemistry</h3>
+                                    <p>Organic Chemistry</p>
+                                </div>
+                                <div class="test-meta">
+                                    <span class="test-date">May 20, 2024</span>
+                                    <button class="start-test">Start Test</button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="recent-results">
+                        <h2>Recent Results</h2>
+                        <div class="results-list">
+                            <div class="result-item">
+                                <div class="result-info">
+                                    <h3>Biology</h3>
+                                    <p>Cell Structure</p>
+                                </div>
+                                <div class="result-score passed">92%</div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-info">
+                                    <h3>English</h3>
+                                    <p>Grammar Test</p>
+                                </div>
+                                <div class="result-score passed">88%</div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-info">
+                                    <h3>Geography</h3>
+                                    <p>Climate Zones</p>
+                                </div>
+                                <div class="result-score failed">45%</div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="dash.js"></script>
+</body>
+</html>

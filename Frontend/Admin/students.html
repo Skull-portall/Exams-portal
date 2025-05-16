@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="students.css">
+    <link rel="stylesheet" href="dash.css">
+    <title>Manage Students - Admin Portal</title>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo-container">
+                <h1 class="logo">SKULL PORT</h1>
+            </div>
+            <nav class="nav-menu">
+                <button class="nav-item" data-page="dashboard">
+                    <span class="icon">🏠</span>
+                    <span>Dashboard</span>
+                </button>
+                <button class="nav-item" data-page="teachers">
+                    <span class="icon">👨‍🏫</span>
+                    <span>Manage Teachers</span>
+                </button>
+                <button class="nav-item active" data-page="students">
+                    <span class="icon">👥</span>
+                    <span>Manage Students</span>
+                </button>
+                <button class="nav-item" data-page="profile">
+                    <span class="icon">👤</span>
+                    <span>Profile</span>
+                </button>
+                <button class="nav-item logout">
+                    <span class="icon">🚪</span>
+                    <span>Logout</span>
+                </button>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="search-container">
+                    <input type="text" placeholder="Search students..." class="search-input">
+                    <span class="search-icon">🔍</span>
+                </div>
+                <div class="user-info">
+                    <span class="notification-badge">🔔</span>
+                    <span class="user-name">Admin Name</span>
+                    <img src="/Frontend/img/school .png" alt="Profile" class="user-avatar">
+                </div>
+            </header>
+
+            <div class="students-content">
+                <section class="welcome-section">
+                    <h1>Manage Students</h1>
+                    <p>View and manage all registered students</p>
+                </section>
+
+                <div class="action-bar">
+                    <button class="add-student-btn" onclick="window.location.href='register-student.html'">
+                        <span class="icon">➕</span> Add New Student
+                    </button>
+                    <div class="filters">
+                        <select id="classFilter">
+                            <option value="">All Classes</option>
+                            <option value="4a">Form 4A</option>
+                            <option value="4b">Form 4B</option>
+                            <option value="4c">Form 4C</option>
+                        </select>
+                        <select id="statusFilter">
+                            <option value="">All Status</option>
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="students-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Student ID</th>
+                                <th>Name</th>
+                                <th>Class</th>
+                                <th>Parent/Guardian</th>
+                                <th>Contact</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="studentsTableBody">
+                            <!-- Students will be dynamically populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Student Details Modal -->
+    <div class="modal" id="studentDetailsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Student Details</h2>
+                <button class="close-modal">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="student-details">
+                    <!-- Student details will be populated here -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="edit-btn">Edit</button>
+                <button class="delete-btn">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div class="modal" id="confirmationModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Confirm Action</h2>
+                <button class="close-modal">×</button>
+            </div>
+            <div class="modal-body">
+                <p id="confirmationMessage">Are you sure you want to proceed with this action?</p>
+                <div class="modal-footer">
+                    <button id="confirmAction" class="delete-btn">Confirm</button>
+                    <button id="cancelAction" class="edit-btn">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="students.js"></script>
+</body>
+</html>

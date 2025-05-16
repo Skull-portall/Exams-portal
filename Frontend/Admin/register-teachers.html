@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../index.css">
+    <title>Register Teacher - Admin Portal</title>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-section">
+            <img src="" alt="School Logo" class="logo">
+        </div>
+
+        <div class="form-section">
+            <div class="login-container">
+                <h2>REGISTER TEACHER</h2>
+                
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label for="fullName">Full Name:</label>
+                        <input type="text" id="fullName" placeholder="Enter teacher's full name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" placeholder="Enter teacher's email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject:</label>
+                        <select id="subject" required>
+                            <option value="">Select subject</option>
+                            <option value="mathematics">Mathematics</option>
+                            <option value="physics">Physics</option>
+                            <option value="chemistry">Chemistry</option>
+                            <option value="biology">Biology</option>
+                            <option value="english">English</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" placeholder="Create password" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password:</label>
+                        <input type="password" id="confirmPassword" placeholder="Confirm password" required>
+                    </div>
+
+                    <div class="button-group">
+                        <button type="submit" class="login-btn">Register Teacher</button>
+                        <button type="button" class="register-btn" onclick="window.location.href='dash.html'">Back to Dashboard</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="register-teachers.js"></script>
+</body>
+</html>

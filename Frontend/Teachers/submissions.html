@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="submissions.css">
+    <link rel="stylesheet" href="dash.css">
+    <title>Student Submissions - Teacher Dashboard</title>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo-container">
+                <h1 class="logo">SKULL PORT</h1>
+            </div>
+            <nav class="nav-menu">
+                <button class="nav-item" data-page="dashboard">
+                    <span class="icon">🏠</span>
+                    <span>Dashboard</span>
+                </button>
+                <button class="nav-item" data-page="tests">
+                    <span class="icon">📝</span>
+                    <span>Create Tests</span>
+                </button>
+                <button class="nav-item" data-page="exams">
+                    <span class="icon">📋</span>
+                    <span>Create Exams</span>
+                </button>
+                <button class="nav-item active" data-page="submissions">
+                    <span class="icon">📥</span>
+                    <span>Submissions</span>
+                </button>
+                <button class="nav-item" data-page="grades">
+                    <span class="icon">📊</span>
+                    <span>Grade Reports</span>
+                </button>
+                <button class="nav-item" data-page="profile">
+                    <span class="icon">👤</span>
+                    <span>Profile</span>
+                </button>
+                <button class="nav-item logout">
+                    <span class="icon">🚪</span>
+                    <span>Logout</span>
+                </button>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="search-container">
+                    <input type="text" placeholder="Search submissions..." class="search-input">
+                    <span class="search-icon">🔍</span>
+                </div>
+                <div class="user-info">
+                    <span class="notification-badge">🔔</span>
+                    <span class="user-name">Ms. Sarah Johnson</span>
+                    <img src="/Frontend/img/school .png" alt="Profile" class="user-avatar">
+                </div>
+            </header>
+
+            <div class="submissions-content">
+                <section class="welcome-section">
+                    <h1>Student Submissions</h1>
+                    <p>Review and grade student submissions</p>
+                </section>
+
+                <div class="filters-section">
+                    <select id="classFilter">
+                        <option value="">All Classes</option>
+                        <option value="4a">Form 4A</option>
+                        <option value="4b">Form 4B</option>
+                        <option value="4c">Form 4C</option>
+                    </select>
+                    <select id="typeFilter">
+                        <option value="">All Types</option>
+                        <option value="test">Tests</option>
+                        <option value="exam">Exams</option>
+                    </select>
+                    <select id="statusFilter">
+                        <option value="">All Status</option>
+                        <option value="pending">Pending</option>
+                        <option value="graded">Graded</option>
+                    </select>
+                </div>
+
+                <div class="submissions-list">
+                    <!-- Pending Submissions -->
+                    <div class="submission-group">
+                        <h2>Pending Submissions</h2>
+                        <div class="submission-cards">
+                            <div class="submission-card pending">
+                                <div class="submission-header">
+                                    <h3>Mathematics Quiz</h3>
+                                    <span class="status">Pending</span>
+                                </div>
+                                <div class="submission-details">
+                                    <p><strong>Student:</strong> John Doe</p>
+                                    <p><strong>Class:</strong> Form 4A</p>
+                                    <p><strong>Submitted:</strong> 2 hours ago</p>
+                                </div>
+                                <button class="grade-btn">Grade Now</button>
+                            </div>
+
+                            <div class="submission-card pending">
+                                <div class="submission-header">
+                                    <h3>Physics Final Exam</h3>
+                                    <span class="status">Pending</span>
+                                </div>
+                                <div class="submission-details">
+                                    <p><strong>Student:</strong> Jane Smith</p>
+                                    <p><strong>Class:</strong> Form 4B</p>
+                                    <p><strong>Submitted:</strong> 3 hours ago</p>
+                                </div>
+                                <button class="grade-btn">Grade Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recently Graded -->
+                    <div class="submission-group">
+                        <h2>Recently Graded</h2>
+                        <div class="submission-cards">
+                            <div class="submission-card graded">
+                                <div class="submission-header">
+                                    <h3>Chemistry Test</h3>
+                                    <span class="status">Graded</span>
+                                </div>
+                                <div class="submission-details">
+                                    <p><strong>Student:</strong> Mike Johnson</p>
+                                    <p><strong>Class:</strong> Form 4A</p>
+                                    <p><strong>Grade:</strong> 85%</p>
+                                </div>
+                                <button class="view-btn">View Details</button>
+                            </div>
+
+                            <div class="submission-card graded">
+                                <div class="submission-header">
+                                    <h3>Biology Quiz</h3>
+                                    <span class="status">Graded</span>
+                                </div>
+                                <div class="submission-details">
+                                    <p><strong>Student:</strong> Sarah Williams</p>
+                                    <p><strong>Class:</strong> Form 4C</p>
+                                    <p><strong>Grade:</strong> 92%</p>
+                                </div>
+                                <button class="view-btn">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="submissions.js"></script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="exam.css">
+    <title>Student Exams - School Portal</title>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo-container">
+                <h1 class="logo">SKULL PORT</h1>
+            </div>
+            <nav class="nav-menu">
+                <button class="nav-item" data-page="dashboard">
+                    <span class="icon">🏠</span>
+                    <span>Dashboard</span>
+                </button>
+                <button class="nav-item" data-page="tests">
+                    <span class="icon">📝</span>
+                    <span>Tests</span>
+                </button>
+                <button class="nav-item active" data-page="exams">
+                    <span class="icon">📋</span>
+                    <span>Exams</span>
+                </button>
+                <button class="nav-item" data-page="profile">
+                    <span class="icon">👤</span>
+                    <span>Profile</span>
+                </button>
+                <button class="nav-item logout">
+                    <span class="icon">🚪</span>
+                    <span>Logout</span>
+                </button>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="search-container">
+                    <input type="text" placeholder="Search exams..." class="search-input">
+                    <span class="search-icon">🔍</span>
+                </div>
+                <div class="user-info">
+                    <span class="notification-badge">🔔</span>
+                    <span class="user-name">John Doe</span>
+                    <img src="/Frontend/img/school .png" alt="Profile" class="user-avatar">
+                </div>
+            </header>
+
+            <!-- Exam List View -->
+            <section class="welcome-section">
+                <h1>Available Exams</h1>
+                <p>Select an exam to begin</p>
+            </section>
+            <div id="examListView" class="exam-content">
+                <div class="exam-grid">
+                    <div class="exam-card">
+                        <div class="exam-header">
+                            <h3>Mathematics</h3>
+                            <span class="exam-status available">Available</span>
+                        </div>
+                        <div class="exam-details">
+                            <p><strong>Duration:</strong> 2 hours</p>
+                            <p><strong>Questions:</strong> 50</p>
+                            <p><strong>Total Marks:</strong> 100</p>
+                            <p><strong>Date:</strong> May 15, 2024</p>
+                        </div>
+                        <button class="start-exam-btn" data-exam="math">Start Exam</button>
+                    </div>
+
+                    <div class="exam-card">
+                        <div class="exam-header">
+                            <h3>Physics</h3>
+                            <span class="exam-status upcoming">Upcoming</span>
+                        </div>
+                        <div class="exam-details">
+                            <p><strong>Duration:</strong> 3 hours</p>
+                            <p><strong>Questions:</strong> 60</p>
+                            <p><strong>Total Marks:</strong> 120</p>
+                            <p><strong>Date:</strong> May 20, 2024</p>
+                        </div>
+                        <button class="start-exam-btn" data-exam="physics" disabled>Not Available Yet</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exam Taking Interface (Hidden by default) -->
+            <div id="examInterface" class="exam-interface hidden">
+                <div class="exam-header">
+                    <h2 id="examTitle">Mathematics Exam</h2>
+                    <div class="exam-timer">
+                        Time Remaining: <span id="timerDisplay">02:00:00</span>
+                    </div>
+                </div>
+
+                <div class="exam-content">
+                    <div class="question-section">
+                        <div id="questionContainer">
+                            <!-- Questions will be loaded here -->
+                        </div>
+                        
+                        <div class="question-navigation">
+                            <button id="prevQuestion">Previous</button>
+                            <div class="question-indicators">
+                                <!-- Will be populated with indicators -->
+                            </div>
+                            <button id="nextQuestion">Next</button>
+                        </div>
+                    </div>
+
+                    <div class="exam-sidebar">
+                        <div class="answer-section">
+                            <h3>Your Answer</h3>
+                            <textarea id="answerInput" placeholder="Write your answer here..."></textarea>
+                        </div>
+
+                        <div class="exam-tools">
+                            <h3>Tools</h3>
+                            <button class="tool-btn" id="calculator">
+                                <span class="icon">🔢</span>
+                                Calculator
+                            </button>
+                            <button class="tool-btn" id="notepad">
+                                <span class="icon">📝</span>
+                                Notepad
+                            </button>
+                            <button class="tool-btn" id="formula">
+                                <span class="icon">📐</span>
+                                Formula Sheet
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="exam-footer">
+                    <button id="submitExam" class="submit-exam">Submit Exam</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div class="modal" id="confirmationModal">
+        <div class="modal-content">
+            <h3>Submit Exam?</h3>
+            <p>Are you sure you want to submit your exam? This action cannot be undone.</p>
+            <div class="modal-actions">
+                <button id="confirmSubmit">Yes, Submit</button>
+                <button id="cancelSubmit">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="exam.js"></script>
+</body>
+</html>

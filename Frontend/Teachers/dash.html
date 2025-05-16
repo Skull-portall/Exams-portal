@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dash.css">
+    <title>Teacher Dashboard - School Portal</title>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo-container">
+                <h1 class="logo">SKULL PORT</h1>
+            </div>
+            <nav class="nav-menu">
+                <button class="nav-item active" data-page="dashboard">
+                    <span class="icon">🏠</span>
+                    <span>Dashboard</span>
+                </button>
+                <button class="nav-item" data-page="tests">
+                    <span class="icon">📝</span>
+                    <span>Create Tests</span>
+                </button>
+                <button class="nav-item" data-page="exams">
+                    <span class="icon">📋</span>
+                    <span>Create Exams</span>
+                </button>
+                <button class="nav-item" data-page="submissions">
+                    <span class="icon">📥</span>
+                    <span>Submissions</span>
+                </button>
+                <button class="nav-item" data-page="grades">
+                    <span class="icon">📊</span>
+                    <span>Grade Reports</span>
+                </button>
+                <button class="nav-item" data-page="profile">
+                    <span class="icon">👤</span>
+                    <span>Profile</span>
+                </button>
+                <button class="nav-item logout">
+                    <span class="icon">🚪</span>
+                    <span>Logout</span>
+                </button>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="search-container">
+                    <input type="text" placeholder="Search..." class="search-input">
+                    <span class="search-icon">🔍</span>
+                </div>
+                <div class="user-info">
+                    <span class="notification-badge">🔔</span>
+                    <span class="user-name">Ms. Sarah Johnson</span>
+                    <img src="/Frontend/img/school .png" alt="Profile" class="user-avatar">
+                </div>
+            </header>
+
+            <div class="dashboard-content">
+                <section class="welcome-section">
+                    <h1>Welcome back, Ms. Johnson! 👋</h1>
+                    <p>Here's what's happening in your classes</p>
+                </section>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Active Classes</h3>
+                        <p class="stat-number">5</p>
+                        <p class="stat-text">Total students: 150</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Pending Tests</h3>
+                        <p class="stat-number">3</p>
+                        <p class="stat-text">Need grading</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Upcoming Exams</h3>
+                        <p class="stat-number">2</p>
+                        <p class="stat-text">This week</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Class Average</h3>
+                        <p class="stat-number">85%</p>
+                        <p class="stat-text">All subjects</p>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <section class="recent-submissions">
+                        <div class="section-header">
+                            <h2>Recent Submissions</h2>
+                            <button class="view-all-btn">View All</button>
+                        </div>
+                        <div class="submission-list">
+                            <div class="submission-item">
+                                <div class="submission-info">
+                                    <h3>Mathematics Quiz</h3>
+                                    <p>John Doe - Form 4A</p>
+                                    <span class="submission-time">2 hours ago</span>
+                                </div>
+                                <button class="grade-btn">Grade Now</button>
+                            </div>
+                            <div class="submission-item">
+                                <div class="submission-info">
+                                    <h3>Physics Test</h3>
+                                    <p>Jane Smith - Form 4B</p>
+                                    <span class="submission-time">3 hours ago</span>
+                                </div>
+                                <button class="grade-btn">Grade Now</button>
+                            </div>
+                            <div class="submission-item">
+                                <div class="submission-info">
+                                    <h3>Chemistry Lab Report</h3>
+                                    <p>Mike Johnson - Form 4A</p>
+                                    <span class="submission-time">5 hours ago</span>
+                                </div>
+                                <button class="grade-btn">Grade Now</button>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="class-schedule">
+                        <div class="section-header">
+                            <h2>Today's Schedule</h2>
+                            <button class="view-all-btn">Full Schedule</button>
+                        </div>
+                        <div class="schedule-list">
+                            <div class="schedule-item">
+                                <div class="schedule-time">08:00 AM</div>
+                                <div class="schedule-content">
+                                    <h3>Mathematics</h3>
+                                    <p>Form 4A - Room 301</p>
+                                </div>
+                                <span class="schedule-status ongoing">Ongoing</span>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-time">10:30 AM</div>
+                                <div class="schedule-content">
+                                    <h3>Physics</h3>
+                                    <p>Form 4B - Lab 2</p>
+                                </div>
+                                <span class="schedule-status upcoming">Upcoming</span>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-time">02:00 PM</div>
+                                <div class="schedule-content">
+                                    <h3>Chemistry</h3>
+                                    <p>Form 4A - Lab 1</p>
+                                </div>
+                                <span class="schedule-status upcoming">Upcoming</span>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <section class="quick-actions">
+                    <h2>Quick Actions</h2>
+                    <div class="action-buttons">
+                        <button class="action-btn">
+                            <span class="icon">📝</span>
+                            Create New Test
+                        </button>
+                        <button class="action-btn">
+                            <span class="icon">📊</span>
+                            Generate Reports
+                        </button>
+                        <button class="action-btn">
+                            <span class="icon">📧</span>
+                            Send Announcements
+                        </button>
+                        <button class="action-btn">
+                            <span class="icon">👥</span>
+                            Manage Students
+                        </button>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="dash.js"></script>
+</body>
+</html>

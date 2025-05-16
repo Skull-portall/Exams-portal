@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="profile.css">
+    <title>Student Profile - School Portal</title>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo-container">
+                <h1 class="logo">SKULL PORT</h1>
+            </div>
+            <nav class="nav-menu">
+                <button class="nav-item" data-page="dashboard">
+                    <span class="icon">🏠</span>
+                    <span>Dashboard</span>
+                </button>
+                <button class="nav-item" data-page="tests">
+                    <span class="icon">📝</span>
+                    <span>Tests</span>
+                </button>
+                <button class="nav-item" data-page="exams">
+                    <span class="icon">📋</span>
+                    <span>Exams</span>
+                </button>
+                <button class="nav-item active" data-page="profile">
+                    <span class="icon">👤</span>
+                    <span>Profile</span>
+                </button>
+                <button class="nav-item logout">
+                    <span class="icon">🚪</span>
+                    <span>Logout</span>
+                </button>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <h1>My Profile</h1>
+                <div class="user-info">
+                    <span class="notification-badge">🔔</span>
+                    <span class="user-name">John Doe</span>
+                    <img src="/Frontend/img/school .png" alt="Profile" class="user-avatar">
+                </div>
+            </header>
+
+            <div class="profile-content">
+                <div class="profile-section">
+                    <div class="profile-header">
+                        <div class="profile-avatar-container">
+                            <img src="/Frontend/img/school .png" alt="Profile" class="profile-avatar">
+                            <button class="change-avatar-btn">Change Photo</button>
+                        </div>
+                        <div class="profile-info">
+                            <h2>John Doe</h2>
+                            <p>Student ID: STU001</p>
+                            <p>Class: Form 4A</p>
+                        </div>
+                    </div>
+
+                    <div class="profile-form">
+                        <h3>Personal Information</h3>
+                        <form id="personalInfoForm">
+                            <div class="form-group">
+                                <label for="fullName">Full Name</label>
+                                <input type="text" id="fullName" value="John Doe" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" value="john.doe@example.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" value="+1234567890">
+                            </div>
+                            <button type="submit" class="save-btn">Save Changes</button>
+                        </form>
+
+                        <h3>Change Password</h3>
+                        <form id="passwordForm">
+                            <div class="form-group">
+                                <label for="currentPassword">Current Password</label>
+                                <input type="password" id="currentPassword" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="newPassword">New Password</label>
+                                <input type="password" id="newPassword" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmPassword">Confirm New Password</label>
+                                <input type="password" id="confirmPassword" required>
+                            </div>
+                            <button type="submit" class="save-btn">Update Password</button>
+                        </form>
+
+                        <h3>Preferences</h3>
+                        <form id="preferencesForm">
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" id="emailNotifications" checked>
+                                    Receive email notifications
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" id="smsNotifications">
+                                    Receive SMS notifications
+                                </label>
+                            </div>
+                            <button type="submit" class="save-btn">Save Preferences</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <h3>Success!</h3>
+            <p id="successMessage">Your changes have been saved successfully.</p>
+            <button id="closeModal">OK</button>
+        </div>
+    </div>
+
+    <script src="profile.js"></script>
+</body>
+</html>
