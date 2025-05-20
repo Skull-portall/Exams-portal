@@ -1,12 +1,22 @@
+<?php
+session_start();
+if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
+    header('Location: ../index.html');
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="teachers.css">
-   <link rel="stylesheet" href="dash.css">
+    <link rel="stylesheet" href="dash.css">
     <title>Manage Teachers - Admin Portal</title>
 </head>
+
 <body>
     <div class="dashboard-container">
         <!-- Sidebar -->
@@ -99,4 +109,5 @@
 
     <script src="teachers.js"></script>
 </body>
+
 </html>
