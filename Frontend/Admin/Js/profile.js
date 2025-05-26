@@ -17,7 +17,7 @@ navItems.forEach(item => {
             sessionStorage.clear();
             
             // Redirect to login page
-            window.location.href = '../index.html';
+            window.location.href = '/Frontend/index.html';
             return;
         }
         

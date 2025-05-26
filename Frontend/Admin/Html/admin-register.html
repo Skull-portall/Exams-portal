@@ -3,15 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../index.css">
+    <link rel="stylesheet" href="../../index.css">
     <title>Admin Registration - School Portal</title>
+
 </head>
 <body>
     <div class="container">
+        <!-- Left side with logo -->
         <div class="logo-section">
-            <img src="/Frontend/img/school .png" alt="School Logo" class="logo">
+            <img src="../../img/school .png" alt="School Logo" class="logo">
         </div>
-
+ <div class="form-section">
+<div class="login-container">
+        <h2>Admin Registration </h2>
         <form id="registerForm" action="/exam_portal/Backend/routes/adminRoute.php" method="post">
             <input type="hidden" name="action" value="create">
         
@@ -47,12 +51,14 @@
         
             <div class="button-group">
                 <button type="submit" class="login-btn">Register</button>
-                <button type="button" class="register-btn" onclick="window.location.href='../index.html'">Back to Login</button>
+                <button type="button" class="register-btn" onclick="window.location.href='../../index.html'">Back to Login</button>
             </div>
         </form>
+        </div>
+        </div>
                  </div>
         </div>
-    </div>
+    </div>    
  <!-- Password confirmation validation script -->
  <script>
     document.getElementById('registerForm').addEventListener('submit', function(event) {
@@ -63,7 +69,8 @@
             event.preventDefault();
         }
     });
+    
 </script>
-    <!--script src="Frontend/Admin/admin-register.js"></script-->
+    <!-- <script src="../../Js/admin-register.js"></script> -->
 </body>
 </html>

@@ -15,7 +15,7 @@ navItems.forEach(item => {
             sessionStorage.clear();
             
             // Redirect to login page
-            window.location.href = '../index.html';
+            window.location.href = '/Frontend/index.html';
             return;
         }
         
@@ -124,7 +124,7 @@ function loadAdminData() {
     if (adminData) {
         document.querySelector('.user-name').textContent = adminData.name;
     } else {
-        window.location.href = '../index.html';
+        window.location.href = '/Frontend/index.html';
     }
 }
 

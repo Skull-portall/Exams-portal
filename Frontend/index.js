@@ -288,7 +288,7 @@ loginForm.addEventListener('submit', (e) => {
 
 // Register button (admin only)
 registerBtn.addEventListener('click', () => {
-    window.location.href = 'Admin/admin-register.html';
+    window.location.href = 'Admin/Html/admin-register.html';
 });
 
 // Helper UI functions

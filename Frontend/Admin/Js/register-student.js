@@ -28,7 +28,7 @@ registerForm.addEventListener('submit', (e) => {
     // Show success message and redirect
     showSuccess('Student registered successfully!');
     setTimeout(() => {
-        window.location.href = 'dash.html';
+        window.location.href = '/Frontend/Admin/Html/dash.html';
     }, 1500);
 });
 
@@ -57,6 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Check if admin is logged in
     const adminData = JSON.parse(sessionStorage.getItem('currentAdmin'));
     if (!adminData) {
-        window.location.href = '../index.html';
+        window.location.href = '/Frontend/index.html';
     }
 });

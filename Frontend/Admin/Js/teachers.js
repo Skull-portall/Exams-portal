@@ -20,7 +20,7 @@ navItems.forEach(item => {
             sessionStorage.clear();
             
             // Redirect to login page
-            window.location.href = '../index.html';
+            window.location.href = '/Frontend/index.html';
             return;
         }
         
@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (adminData) {
         document.querySelector('.user-name').textContent = adminData.name;
     } else {
-        window.location.href = '../index.html';
+        window.location.href = '/Frontend/index.html';
     }
     
     // Load initial teachers list

@@ -6,45 +6,47 @@ registerForm.addEventListener('submit', (e) => {
     e.preventDefault();
     clearMessages();
 
-    const fullName = document.getElementById('fullName').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const password = document.getElementById('password').value;
-    const confirmPassword = document.getElementById('confirmPassword').value;
+    const formData = {
+        name: document.getElementById('fullName').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        subject: document.getElementById('subject').value,
+        password: document.getElementById('password').value,
+        confirmPassword: document.getElementById('confirmPassword').value
+    };
 
     // Validate passwords match
-    if (password !== confirmPassword) {
+    if (formData.password !== formData.confirmPassword) {
         showError('Passwords do not match');
         return;
     }
 
     // Validate email format
-    if (!isValidEmail(email)) {
+    if (!isValidEmail(formData.email)) {
         showError('Please enter a valid email address');
         return;
     }
 
     // Check if email already exists
-    const admins = JSON.parse(localStorage.getItem('admins') || '[]');
-    if (admins.some(admin => admin.email === email)) {
+    const teachers = JSON.parse(localStorage.getItem('teachers') || '[]');
+    if (teachers.some(teacher => teacher.email === formData.email)) {
         showError('This email is already registered');
         return;
     }
 
-    // Create new admin object
-    const newAdmin = {
-        name: fullName,
-        email: email,
-        password: password
-    };
-
-    // Add to registered admins
-    admins.push(newAdmin);
-    localStorage.setItem('admins', JSON.stringify(admins));
+    // Add to registered teachers
+    teachers.push({
+        name: formData.name,
+        email: formData.email,
+        subject: formData.subject,
+        password: formData.password,
+        status: 'active'
+    });
+    localStorage.setItem('teachers', JSON.stringify(teachers));
 
     // Show success message and redirect
-    showSuccess('Registration successful! Redirecting to login...');
+    showSuccess('Teacher registered successfully!');
     setTimeout(() => {
-        window.location.href = '../index.html';
+        window.location.href = 'Frontend/Admin/Html/dash.html';
     }, 1500);
 });
 
@@ -72,3 +74,12 @@ function isValidEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
 }
+
+// Initialize form
+document.addEventListener('DOMContentLoaded', () => {
+    // Check if admin is logged in
+    const adminData = JSON.parse(sessionStorage.getItem('currentAdmin'));
+    if (!adminData) {
+        window.location.href = '/Frontend/index.html';
+    }
+});
