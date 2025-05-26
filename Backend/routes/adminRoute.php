@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
         // Get form data
         $name = $_POST['name'];
         $email = $_POST['email'];
-        $role = $_POST['role']; // Assuming role is passed in the form
+        $role = $_POST['role'];
         $password = $_POST['password'];
         $confirmPassword = $_POST['confirmPassword'];
         $number = $_POST['number'];
@@ -16,43 +16,39 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
         // Log the received data for monitoring
         error_log("Received data: name=$name, email=$email, role=$role, number=$number");
 
-        // Optional: Check if passwords match
+        // Check if passwords match
         if ($password !== $confirmPassword) {
-            error_log("Passwords do not match for user: $email");
             echo json_encode(['status' => 'failed', 'message' => 'Passwords do not match']);
             exit;
         }
 
-        // Optional: validate fields (add more checks if needed)
+        // Check for missing fields
         if (empty($name) || empty($email) || empty($password) || empty($number)) {
-            error_log("Missing required fields for user: $email");
             echo json_encode(['status' => 'failed', 'message' => 'Please fill all required fields']);
             exit;
         }
 
-        // Hash the password before storing it
-        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
-        // Log password hashing for debugging
-        error_log("Password hashed for user: $email");
-
-        // Call your controller to create the user
-        $result = $userController->createUser($name, $email, $role, $hashedPassword, $number); // Include phone
-
-        // Return response and log the result
-        if ($result) {
-            error_log("User created successfully: $email");
-            echo json_encode([
-                'status' => 'success',
-                'message' => 'Registration successful'
-            ]);
-        } else {
-            error_log("User creation failed for: $email");
-            echo json_encode([
-                'status' => 'failed',
-                'message' => 'Registration failed'
-            ]);
+        // ✅ Check if email already exists
+        $existingUser = $userController->getUserByEmail($email);
+        if ($existingUser) {
+            echo json_encode(['status' => 'failed', 'message' => 'Email already exists']);
+            exit;
         }
+
+        // ✅ Create the user
+        try {
+            $result = $userController->createUser($name, $email, $role, $password, $number);
+
+            if ($result) {
+                echo json_encode(['status' => 'success', 'message' => 'Registration successful']);
+            } else {
+                echo json_encode(['status' => 'failed', 'message' => 'Registration failed']);
+            }
+        } catch (PDOException $e) {
+            error_log("Error during user creation: " . $e->getMessage());
+            echo json_encode(['status' => 'failed', 'message' => 'Database error occurred']);
+        }
+
         exit;
     }
 }
