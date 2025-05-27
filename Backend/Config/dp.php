@@ -4,7 +4,7 @@ class Database
     private $host = "localhost";
     private $db_name = "exam_portal";
     private $username = "root";
-    private $password = "admin";
+    private $password = "";
     public $conn;
 
     public function connect()

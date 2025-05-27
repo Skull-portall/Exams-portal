@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // choose PHP dashboard
             switch ($user['role']) {
                 case 'admin':
-                    $target = '../../Frontend/Admin/dash.php';
+                    $target = '../../Frontend/Admin/Html/dash.html';
                     break;
                 case 'teacher':
                     $target = '../../Frontend/Teacher/dash.php';
